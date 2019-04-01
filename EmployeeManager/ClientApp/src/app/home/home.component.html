@@ -8,4 +8,33 @@
     <li class="breadcrumb-item active">Overview</li>
   </ol>
 
+  <button (click)="getEmployees()">Click ME</button>
+
+  <br /><br />
+
+  <!-- DataTables Example -->
+  <div class="card mb-3">
+    <div class="card-header">
+      <i class="fas fa-table"></i>
+      Employees
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let employee of employees$">
+              <td>{{ employee.name }}</td>
+              <td>{{ employee.age }}</td>
+            </tr>           
+          </tbody>
+        </table>    
+      </div>
+    </div>
+  </div>
 </div>

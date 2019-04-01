@@ -14,42 +14,63 @@ namespace EmployeeManager.Controllers
     {
 
         [HttpGet]
+        [Route("GetAllEmployees")]
         public IEnumerable<Employee> GetAll()
         {
             var list = new List<Employee>();
 
-            list.Add(new Employee() { Name = "Lilly" });
-            list.Add(new Employee() { Name = "Lucy" });
+            list.Add(new Employee() { Name = "Lilly", Age = 28 });
+            list.Add(new Employee() { Name = "Lucy", Age = 29 });
 
             return list;
         }
 
-        [HttpGet("{name}")]
-        public Employee Get(string name)
+        [HttpGet]
+        [Route("GetEmployee")]
+        public Employee GetEmployee(int id)
         {
-            return new Employee() { Name = name };
+            var list = new List<Employee>();
+
+            list.Add(new Employee() { Name = "Lilly", Age = 28 });
+            list.Add(new Employee() { Name = "Lucy", Age = 29 });
+
+            return list.ElementAt(0);
         }
 
-        [HttpPost]
-        public Employee Insert([FromBody]Employee cat)
+        [HttpGet]
+        [Route("CreateEmployee")]
+        public IEnumerable<Employee> CreateEmployee()
         {
-            // write the new cat to database
-            return cat;
+            var list = new List<Employee>();
+
+            list.Add(new Employee() { Name = "Lilly", Age = 28 });
+            list.Add(new Employee() { Name = "Lucy", Age = 29 });
+
+            return list;
         }
 
-        [HttpPut("{name}")]
-        public Employee Update(string name, [FromBody]Employee cat)
+        [HttpGet]
+        [Route("UpdateEmployee")]
+        public IEnumerable<Employee> UpdateEmployee()
         {
-            cat.Name = name;
-            // write the updated cat to database
-            return cat;
+            var list = new List<Employee>();
+
+            list.Add(new Employee() { Name = "Lilly", Age = 28 });
+            list.Add(new Employee() { Name = "Lucy", Age = 29 });
+
+            return list;
         }
 
-        [HttpDelete("{name}")]
-        public void Delete(string name)
+        [HttpGet]
+        [Route("DeleteEmployee")]
+        public IEnumerable<Employee> DeleteEmployee()
         {
-            // delete the cat from the database
+            var list = new List<Employee>();
 
+            list.Add(new Employee() { Name = "Lilly", Age = 28 });
+            list.Add(new Employee() { Name = "Lucy", Age = 29 });
+
+            return list;
         }
     }
 }
